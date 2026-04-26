@@ -1,0 +1,18 @@
+.idea/
+*.iml
+
+# Ignore everything under data/ except a few tracked placeholders
+/data/*
+!/data/config/
+!/data/farcry2/
+!/data/user_maps/
+
+# Track only the server config inside data/config
+/data/config/*
+!/data/config/dedicated_server.cfg
+
+# Keep data/farcry2 and data/user_maps as empty placeholders in the repo
+/data/farcry2/*
+!/data/farcry2/.gitkeep
+/data/user_maps/*
+!/data/user_maps/.gitkeep

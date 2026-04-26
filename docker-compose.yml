@@ -1,0 +1,15 @@
+services:
+  fc2-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: fc2-server
+    container_name: fc2-server
+    platform: linux/amd64
+    restart: unless-stopped
+    ports:
+      - "9000-9003:9000-9003/tcp"
+      - "9000-9003:9000-9003/udp"
+      - "3074-3080:3074-3080/udp"
+    volumes:
+      - ./data:/data
