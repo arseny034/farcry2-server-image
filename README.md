@@ -4,10 +4,17 @@ Run the Far Cry 2 multiplayer dedicated server (`FC2ServerLauncher.exe`) on Linu
 inside a container, using Wine. The image ships only Wine + Xvfb; the game files
 live on the host and are mounted into the container at runtime.
 
+![Docker Image Version](https://img.shields.io/docker/v/arseny034/farcry2-server)
+![Docker Image Size](https://img.shields.io/docker/image-size/arseny034/farcry2-server)
+
+```shell
+docker pull arseny034/farcry2-server:latest
+```
+
 ## Requirements
 
-- Docker / Docker Compose v2
-- A copy of the **Steam version** of Far Cry 2 with the community
+- Docker or a compatible container runtime.
+- A copy of the Steam version of Far Cry 2 with the community
   **multiplayer patch** installed from
   [fc2mp.com](https://www.fc2mp.com/Multiplayer-patch/).
 - An `x86_64` Linux host.
@@ -40,17 +47,9 @@ the `Dockerfile` and run `docker compose up`. Any other arrangement is fine
 as long as the `/data` tree inside the container ends up matching the layout
 above.
 
-## Configuration
-
-The launcher reads its config from
-`Documents\My Games\Far Cry 2\Server\dedicated_server.cfg` (its default
-Windows location). Inside the container that path is a symlink to
-`/data/config/`, so editing `dedicated_server.cfg` in your mounted volume is
-all that's needed — no launcher arguments required.
-
 ## Ports
 
-Published in `docker-compose.yml`:
+The following ports should be published from the container:
 
 | Port range  | Proto    | Purpose          |
 |-------------|----------|------------------|
